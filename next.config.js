@@ -1,6 +1,20 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
-  reactStrictMode: true,
-}
+	devIndicators: {
+		buildActivity: false,
+	},
+	images: {
+		domains: [
+			'netkallo.nagykalloihirek.hu',
+			'cdn.szon.hu',
+			'nagykallo.hu',
+			'kolcseytv.hu',
+			'www.koranyigimi.hu',
+			'static.civishir.hu',
+			'live.staticflickr.com',
+		],
+	},
+	reactStrictMode: true,
+};
 
-module.exports = nextConfig
+module.exports = nextConfig;
