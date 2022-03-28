@@ -1,6 +1,7 @@
 import { useEffect } from 'react';
 import { render } from 'react-dom';
 import Head from 'next/head';
+import Script from 'next/script';
 import { useRouter } from 'next/router';
 import Image from 'next/image';
 import Link from 'next/link';
@@ -77,6 +78,16 @@ const Post: NextPage<PostResponse & { settings: Settings }> = ({
 					/>
 				)}
 			</Head>
+			<div
+				id="fb-root"
+			></div>
+			<Script
+				src="https://connect.facebook.net/hu_HU/sdk.js#xfbml=1&version=v13.0&appId=443573866964646&autoLogAppEvents=1"
+				crossOrigin="anonymous"
+				nonce="N5J3nFun"
+				async
+				defer
+			></Script>
 			<article>
 				<h1
 					className="text-2xl pt-3 font-bold"
@@ -148,14 +159,20 @@ const Post: NextPage<PostResponse & { settings: Settings }> = ({
 					</div>
 				)}
 				{url && (
-					<iframe
-						src={`https://www.facebook.com/plugins/share_button.php?href=${url}%2F&layout=button_count&size=small&appId=443573866964646`}
-						className="mt-3 mb-6"
-						height="20"
-						scrolling="no"
-						allow="autoplay; clipboard-write; encrypted-media; picture-in-picture;"
-						allowFullScreen
-					></iframe>
+					<div
+						className="fb-share-button mt-3 mb-6"
+						data-href={url}
+						data-layout="button_count"
+						data-size="small"
+					>
+						<a
+							target="_blank"
+							href={`https://www.facebook.com/sharer/sharer.php?u=${url}&amp;src=sdkpreparse`}
+							className="fb-xfbml-parse-ignore"
+						>
+							Megosztás
+						</a>
+					</div>
 				)}
 				{posts.value.length && (
 					<>
