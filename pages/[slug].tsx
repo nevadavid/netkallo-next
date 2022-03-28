@@ -73,6 +73,7 @@ const Post: NextPage<PostResponse & { settings: Settings }> = ({
 					<meta
 						property="og:image"
 						content={image}
+						key="og:image"
 					/>
 				)}
 			</Head>

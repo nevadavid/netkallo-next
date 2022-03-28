@@ -50,7 +50,8 @@ function MyApp({
 				/>
 				<meta
 					property="og:image"
-					content="/netkallo-promo.png"
+					content={`${process.env.NEXT_PUBLIC_URL}/netkallo-promo.png`}
+					key="og:image"
 				/>
 				<meta
 					property="fb:app_id"
