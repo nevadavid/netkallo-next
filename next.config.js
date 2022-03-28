@@ -5,6 +5,7 @@ const nextConfig = {
 	},
 	images: {
 		domains: [
+			'0.0.0.0',
 			'localhost',
 			'netkallo.hu',
 			'netkallo.nagykalloihirek.hu',

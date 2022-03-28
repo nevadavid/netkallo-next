@@ -2,8 +2,8 @@ module.exports = {
 	apps: [
 		{
 			name: 'netkallo-next',
-			exec_mode: 'cluster',
-			instances: 'max',
+			// exec_mode: 'cluster',
+			// instances: 'max',
 			script: 'npm',
 			args: 'start',
 			env: {
