@@ -3,7 +3,6 @@ module.exports = {
 		{
 			name: 'netkallo-next',
 			exec_mode: 'fork',
-			// instances: 'max',
 			script: 'npm',
 			args: 'start',
 			env: {
