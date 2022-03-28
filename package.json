@@ -6,7 +6,7 @@
 		"dev": "next dev",
 		"dev-https": "local-ssl-proxy --key key.pem --cert cert.pem --source 4001 --target 3000",
 		"build": "next build",
-		"start": "next start",
+		"start": "next start -p 13000",
 		"lint": "next lint"
 	},
 	"dependencies": {
