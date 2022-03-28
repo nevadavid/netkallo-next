@@ -1,3 +1,4 @@
+import { useState } from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
 
@@ -19,6 +20,7 @@ function PostItem({
 }: Props) {
 	const now = new Date().toISOString();
 	const dateDist = formatDistance(date || now);
+	const [src, setSrc] = useState(image);
 
 	return (
 		<Link
@@ -90,7 +92,7 @@ function PostItem({
 						></div>
 					</div>
 				)}
-				{image && (
+				{src && (
 					<div
 						className={cls([
 							'flex-none flex justify-center overflow-hidden bg-gray-100',
@@ -101,12 +103,13 @@ function PostItem({
 						])}
 					>
 						<Image
-							src={image}
+							src={src}
 							width={featured ? 744 : 200}
 							height={featured ? 418 : 200}
 							alt={title}
 							className="object-cover"
 							priority
+							onError={() => setSrc('/netkallo-promo.png')}
 						></Image>
 					</div>
 				)}
