@@ -15,6 +15,7 @@ const nextConfig = {
 			'https://cdn.szon.hu',
 			'https://www.szon.hu',
 			'https://www.cdn.szon.hu',
+			'cloudflare.com',
 			'nagykallo.hu',
 			'kolcseytv.hu',
 			'www.koranyigimi.hu',
