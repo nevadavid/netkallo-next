@@ -166,9 +166,10 @@ const Post: NextPage<PostResponse & { settings: Settings }> = ({
 						data-size="small"
 					>
 						<a
-							target="_blank"
 							href={`https://www.facebook.com/sharer/sharer.php?u=${url}&amp;src=sdkpreparse`}
 							className="fb-xfbml-parse-ignore"
+							target="_blank"
+							rel="noreferrer"
 						>
 							Megosztás
 						</a>
