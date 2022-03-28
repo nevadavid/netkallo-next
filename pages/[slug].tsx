@@ -85,6 +85,7 @@ const Post: NextPage<PostResponse & { settings: Settings }> = ({
 				src="https://connect.facebook.net/hu_HU/sdk.js#xfbml=1&version=v13.0&appId=443573866964646&autoLogAppEvents=1"
 				crossOrigin="anonymous"
 				nonce="N5J3nFun"
+				strategy="lazyOnload"
 				async
 				defer
 			></Script>
