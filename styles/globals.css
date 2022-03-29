@@ -8,6 +8,7 @@ iframe[src*="youtube.com"] {
 	@apply aspect-video;
 }
 
-article img {
+#content img {
 	@apply my-3;
+	@apply mx-auto;
 }
