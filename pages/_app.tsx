@@ -94,11 +94,11 @@ function MyApp({
 					rel="manifest"
 					href="/site.webmanifest"
 				/>
-				<Script
-					src="https://www.google-analytics.com/analytics.js"
-					async
-				></Script>
 			</Head>
+			<Script
+				src="https://www.google-analytics.com/analytics.js"
+				async
+			></Script>
 			<Layout
 				{...pageProps}
 				url={`${process.env.NEXT_PUBLIC_API_URL}/wp-json/posts/index?q=`}
