@@ -1,10 +1,9 @@
-import { useState } from 'react';
 import Link from 'next/link';
-import Image from 'next/image';
 
 import type { Post } from '../../types';
 import { cls } from '../../utils/class-name';
 import { formatDistance } from '../../utils/date';
+import Image from '../Image/Image';
 
 interface Props extends Post {
 	featured?: boolean,
@@ -20,7 +19,6 @@ function PostItem({
 }: Props) {
 	const now = new Date().toISOString();
 	const dateDist = formatDistance(date || now);
-	const [src, setSrc] = useState(image);
 
 	return (
 		<Link
@@ -92,7 +90,7 @@ function PostItem({
 						></div>
 					</div>
 				)}
-				{src && (
+				{image && (
 					<div
 						className={cls([
 							'flex-none flex justify-center overflow-hidden bg-gray-100',
@@ -103,13 +101,11 @@ function PostItem({
 						])}
 					>
 						<Image
-							src={src}
+							src={image}
 							width={featured ? 744 : 200}
 							height={featured ? 418 : 200}
 							alt={title}
 							className="object-cover"
-							priority
-							onError={() => setSrc('/netkallo-promo.png')}
 						></Image>
 					</div>
 				)}

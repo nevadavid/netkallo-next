@@ -3,7 +3,6 @@ import { render } from 'react-dom';
 import Head from 'next/head';
 import Script from 'next/script';
 import { useRouter } from 'next/router';
-import Image from 'next/image';
 import Link from 'next/link';
 import type { NextPage, GetServerSideProps } from 'next';
 
@@ -11,6 +10,7 @@ import { xhr } from '../utils/xhr';
 import type { PostResponse, Settings } from '../types';
 import { formatDistance } from '../utils/date';
 import PostItem from '../components/PostItem/PostItem';
+import Image from '../components/Image/Image';
 import { transformContent } from '../utils/dom';
 
 const Post: NextPage<PostResponse & { settings: Settings }> = ({
