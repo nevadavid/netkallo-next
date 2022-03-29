@@ -14,21 +14,15 @@ function MyApp({
 	pageProps,
 }: AppProps) {
 	const { name, description, footer } = pageProps.settings as Settings;
-	const [isLighthouse, setIsLighthouse] = useState(false);
 
 	useEffect(() => {
-		setIsLighthouse(navigator.userAgent.indexOf('Chrome-Lighthouse') !== -1);
-
-		// If it is not Lighthouse
-		if (!isLighthouse) {
-			window.ga = window.ga || function() {
-				(window.ga.q = window.ga.q || []).push(arguments)
-			};
-			window.ga.l = +new Date;
-			window.ga('create', process.env.NEXT_PUBLIC_GA, 'auto');
-			window.ga('send', 'pageview');
-		}
-	}, [isLighthouse]);
+		window.ga = window.ga || function() {
+			(window.ga.q = window.ga.q || []).push(arguments)
+		};
+		window.ga.l = +new Date;
+		window.ga('create', process.env.NEXT_PUBLIC_GA, 'auto');
+		window.ga('send', 'pageview');
+	}, []);
 
 	return (
 		<>
@@ -100,12 +94,10 @@ function MyApp({
 					rel="manifest"
 					href="/site.webmanifest"
 				/>
-				{!isLighthouse && (
-					<Script
-						src="https://www.google-analytics.com/analytics.js"
-						async
-					></Script>
-				)}
+				<Script
+					src="https://www.google-analytics.com/analytics.js"
+					async
+				></Script>
 			</Head>
 			<Layout
 				{...pageProps}
