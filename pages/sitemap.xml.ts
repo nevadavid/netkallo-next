@@ -25,7 +25,7 @@ export const getServerSideProps = async ({ res }: { res: NextApiResponse }) => {
 		>
 			${posts.map(post => (
 				`<url>
-					<loc>${post.url}></loc>
+					<loc>${post.url}</loc>
 					<lastmod>${post.date}</lastmod>
 					<changefreq>daily</changefreq>
 					<priority>1.0</priority>
