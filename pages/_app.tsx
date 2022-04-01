@@ -52,7 +52,7 @@ function MyApp({
 					content="443573866964646"
 				/>
 				<meta
-					property="description"
+					name="description"
 					content={description}
 				/>
 				<meta
