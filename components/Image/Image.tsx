@@ -33,6 +33,7 @@ function Image({
 				height={height}
 				alt={alt}
 				className={className}
+				loading="lazy"
 			/>
 		);
 	}

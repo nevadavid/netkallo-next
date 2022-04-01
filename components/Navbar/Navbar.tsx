@@ -37,6 +37,7 @@ function Navbar({
 					className="flex items-center space-x-3 text-white"
 				>
 					<button
+						aria-label="Keresés"
 						onClick={() => setOpenBottom(!openBottom)}
 					>
 						<Icon
