@@ -1,13 +1,13 @@
-// Next.js API route support: https://nextjs.org/docs/api-routes/introduction
-import type { NextApiRequest, NextApiResponse } from 'next';
+import type { NextApiResponse } from 'next';
 
-import type { Feed, Settings } from '../../types';
-import { xhr } from '../../utils/xhr';
+import type { Feed, Settings } from '../types';
+import { xhr } from '../utils/xhr';
 
-export default async function handler(
-	req: NextApiRequest,
-	res: NextApiResponse,
-) {
+function Feed() {
+	return null;
+}
+
+export const getServerSideProps = async ({ res }: { res: NextApiResponse }) => {
 	const posts = await xhr(`${process.env.NEXT_PUBLIC_API_URL}/wp-json/posts/index?feed`) as Feed[];
 	const settings = await xhr(`${process.env.NEXT_PUBLIC_API_URL}/wp-json/settings/index`) as Settings;
 
@@ -37,4 +37,10 @@ export default async function handler(
 	`);
 
 	res.end();
+
+	return {
+		props: {},
+	};
 }
+
+export default Feed;
