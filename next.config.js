@@ -3,6 +3,9 @@ const nextConfig = {
 	devIndicators: {
 		buildActivity: false,
 	},
+	experimental: {
+		scrollRestoration: true,
+	},
 	images: {
 		domains: [
 			'0.0.0.0',
