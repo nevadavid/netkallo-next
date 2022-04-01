@@ -160,21 +160,18 @@ const Post: NextPage<PostResponse & { settings: Settings }> = ({
 					</div>
 				)}
 				{url && (
-					<div
-						className="fb-share-button mt-3 mb-6"
-						data-href={url}
-						data-layout="button_count"
-						data-size="small"
-					>
-						<a
-							href={`https://www.facebook.com/sharer/sharer.php?u=${url}&amp;src=sdkpreparse`}
-							className="fb-xfbml-parse-ignore"
-							target="_blank"
-							rel="noreferrer"
-						>
-							Megosztás
-						</a>
-					</div>
+					<iframe
+						src={`https://www.facebook.com/plugins/share_button.php?href=${url}&layout=button_count&size=small&appId=443573866964646&width=96&height=20`}
+						height="20"
+						className="mt-3 mb-6"
+						style={{
+							border: 'none',
+							overflow: 'hidden',
+						}}
+						scrolling="no"
+						allowFullScreen
+						allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share"
+					></iframe>
 				)}
 				{posts.value.length && (
 					<>
