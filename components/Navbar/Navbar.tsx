@@ -1,4 +1,5 @@
-import { ReactNode, useState } from 'react';
+import { ReactNode, useEffect, useState } from 'react';
+import { useRouter } from 'next/router';
 import Link from 'next/link';
 import { mdiFacebook, mdiMagnify } from '@mdi/js';
 
@@ -15,7 +16,12 @@ function Navbar({
 	title,
 	bottom,
 }: Props) {
+	const router = useRouter();
 	const [openBottom, setOpenBottom] = useState(false);
+
+	useEffect(() => {
+		setOpenBottom(false);
+	}, [router]);
 
 	return (
 		<div
