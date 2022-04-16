@@ -24,7 +24,7 @@ function format(date: Date) {
 }
 
 export function formatDistance(dirtyDate: string) {
-	const date = new Date(dirtyDate);
+	const date = new Date(dirtyDate.replace(/-/g, '/'));
 	const time = date.getTime();
 	const now = new Date().getTime();
 	const diff = now - time;
