@@ -6,6 +6,7 @@ import { mdiFacebook, mdiMagnify } from '@mdi/js';
 import Container from '../Container/Container';
 import Icon from '../Icon/Icon';
 import Logo from '../Logo/Logo';
+import ClickOutside from '../ClickOutside/ClickOutside';
 
 interface Props {
 	title: string,
@@ -24,51 +25,55 @@ function Navbar({
 	}, [router]);
 
 	return (
-		<div
-			className="fixed w-full top-0 shadow bg-primary z-20"
+		<ClickOutside
+			onClickOutside={() => setOpenBottom(false)}
 		>
-			<Container
-				className="flex justify-between items-center py-3 space-x-3 text-white"
+			<div
+				className="fixed w-full top-0 shadow bg-primary z-20"
 			>
-				<Link
-					href="/"
+				<Container
+					className="flex justify-between items-center py-3 space-x-3 text-white"
 				>
-					<a
-						aria-label="Logó"
+					<Link
+						href="/"
 					>
-						<Logo></Logo>
-					</a>
-				</Link>
-				<div
-					className="flex items-center space-x-3 text-white"
-				>
-					<button
-						aria-label="Keresés"
-						onClick={() => setOpenBottom(!openBottom)}
+						<a
+							aria-label="Logó"
+						>
+							<Logo></Logo>
+						</a>
+					</Link>
+					<div
+						className="flex items-center space-x-3 text-white"
 					>
-						<Icon
-							path={mdiMagnify}
-						></Icon>
-					</button>
-					<a
-						href={process.env.NEXT_PUBLIC_FB_PAGE_URL}
-						title={title}
-						target="_blank"
-						aria-label="Facebook"
-						rel="noopener noreferrer"
-					>
-						<Icon
-							path={mdiFacebook}
-						></Icon>
-					</a>
-				</div>
-			</Container>
-			{openBottom && (
-				<Container>
-					{bottom}
+						<button
+							aria-label="Keresés"
+							onClick={() => setOpenBottom(!openBottom)}
+						>
+							<Icon
+								path={mdiMagnify}
+							></Icon>
+						</button>
+						<a
+							href={process.env.NEXT_PUBLIC_FB_PAGE_URL}
+							title={title}
+							target="_blank"
+							aria-label="Facebook"
+							rel="noopener noreferrer"
+						>
+							<Icon
+								path={mdiFacebook}
+							></Icon>
+						</a>
+					</div>
 				</Container>
-			)}
-		</div>
+				{openBottom && (
+					<Container>
+						{bottom}
+					</Container>
+				)}
+			</div>
+		</ClickOutside>
 	);
 }
 
