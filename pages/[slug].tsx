@@ -30,14 +30,16 @@ const Post: NextPage<PostResponse & { settings: Settings }> = ({
 	const url = `${process.env.NEXT_PUBLIC_URL}${asPath}`;
 
 	useEffect(() => {
-		render(
-			<div
-				dangerouslySetInnerHTML={{
-					__html: transformContent(content),
-				}}
-			></div>,
-			document.getElementById('content'),
-		);
+		if (content) {
+			render(
+				<div
+					dangerouslySetInnerHTML={{
+						__html: transformContent(content),
+					}}
+				></div>,
+				document.getElementById('content'),
+			);
+		}
 	}, [content]);
 
 	return (
